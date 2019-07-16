@@ -13,6 +13,6 @@ Super Resolution for Anime image. Lightweight implementation of Waifu2X (pytorch
 - Training with MyTrain.py
 - Test with eval.py
 
-[resut preview](https://raw.githubusercontent.com/WynMew/WaifuLite/master/Untitled.png)
+![alt text](https://raw.githubusercontent.com/WynMew/WaifuLite/master/Untitled.png)
 
 code borrowed extensivly from [Waifu2x](https://github.com/yu45020/Waifu2x)
