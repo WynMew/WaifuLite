@@ -49,6 +49,7 @@ torch.cuda.set_device(0)
 model = network_to_half(model)
 model = model.cuda()
 model.load_state_dict(torch.load("/PreTrainedModelDIR/CARN_model_checkpoint.pt"))
+#download from https://github.com/yu45020/Waifu2x/blob/master/model_check_points/CRAN_V2/CRAN_V2_02_28_2019.zip
 
 learning_rate = 1e-4
 weight_decay = 1e-6
