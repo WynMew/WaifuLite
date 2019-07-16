@@ -11,5 +11,8 @@ Super Resolution for Anime image. Lightweight implementation of Waifu2X (pytorch
 ## Usage
 - Training dataset: You may use any high resoluton/ high quality anime images as training data
 - Training with MyTrain.py
+- Test with eval.py
+
+[resut preview](https://raw.githubusercontent.com/WynMew/WaifuLite/master/Untitled.png)
 
 code borrowed extensivly from [Waifu2x](https://github.com/yu45020/Waifu2x)
