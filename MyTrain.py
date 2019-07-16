@@ -5,9 +5,9 @@ from torchvision.utils import save_image
 from tqdm import trange
 
 from MyDataLoader import *
-from utils import image_quality
-from utils.cls import CyclicLR
-from utils.prepare_images import *
+from image_quality import *
+from cls import CyclicLR
+from prepare_images import *
 from torchvision import  transforms
 
 def transformdata(img):
@@ -17,8 +17,8 @@ def transformdata(img):
     ])(img)
     return img
 
-img_dataset = ListDatasetLite(root='/home/wynmew/data/SuperResolutionData/',
-                    list_file='/home/wynmew/data/SuperResolutionData/trainlist', # dataset with neg
+img_dataset = ListDatasetLite(root='/YourDataDir/',
+                    list_file='/YourDataDir/trainlist', # dataset with neg
                     patch_size=96, shrink_size=2, noise_level=1, down_sample_method=None, transform=transformdata)
 
 img_data = DataLoader(img_dataset, batch_size=6, shuffle=True, num_workers=6)
@@ -27,8 +27,8 @@ img_data = DataLoader(img_dataset, batch_size=6, shuffle=True, num_workers=6)
 total_batch = len(img_data)
 print(len(img_dataset))
 
-test_dataset = ListDatasetLite(root='/home/wynmew/data/SuperResolutionData/',
-                    list_file='/home/wynmew/data/SuperResolutionData/testlist', # dataset with neg
+test_dataset = ListDatasetLite(root='/YourDataDir/',
+                    list_file='/YourDataDir/testlist', # dataset with neg
                     patch_size=96, shrink_size=2, noise_level=1, down_sample_method=None, transform=transformdata)
 num_test = len(test_dataset)
 test_data = DataLoader(test_dataset, batch_size=1, shuffle=False, num_workers=1)
@@ -48,7 +48,7 @@ model.total_parameters()
 torch.cuda.set_device(0)
 model = network_to_half(model)
 model = model.cuda()
-model.load_state_dict(torch.load("/home/wynmew/workspace/Waifu2x/model_check_points/CRAN_V2/CARN_model_checkpoint.pt"))
+model.load_state_dict(torch.load("/PreTrainedModelDIR/CARN_model_checkpoint.pt"))
 
 learning_rate = 1e-4
 weight_decay = 1e-6
